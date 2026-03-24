@@ -1,0 +1,84 @@
+// foxkit.ion — Developer Toolkit
+// First app built with ion ⚡
+
+app FoxKit
+
+screen Main {
+    text "🦊 FoxKit — Dev Toolkit"
+    button "My IP" -> navigate(MyIP)
+    button "HTTP Test" -> navigate(HttpTest)
+    button "Quick Notes" -> navigate(Notes)
+    button "About" -> navigate(About)
+}
+
+screen MyIP {
+    text "📡 Network Info"
+    text "Loading..."
+    button "Refresh" -> refresh_ip()
+    button "Copy IP" -> copy_ip()
+    button "Back" -> back()
+}
+
+screen HttpTest {
+    text "🌐 HTTP Tester"
+    input "Enter URL..." 
+    button "GET Request" -> do_get()
+    button "Open in Browser" -> open_url()
+    text "Response will appear here"
+    button "Back" -> back()
+}
+
+screen Notes {
+    text "📝 Quick Notes"
+    input "Write a note..."
+    button "Save" -> save_note()
+    button "Share Notes" -> share_notes()
+    button "Clear All" -> alert("Clear?", "Delete all notes?")
+    button "Back" -> back()
+}
+
+screen About {
+    text "🦊 FoxKit v1.0"
+    text "Built with ion ⚡"
+    text "A minimalist programming language for Android"
+    button "GitHub" -> open("https://github.com/Acorx/ion")
+    button "Star on GitHub ⭐" -> open("https://github.com/Acorx/ion")
+    button "Back" -> back()
+}
+
+fn refresh_ip() {
+    toast("Refreshing...")
+    background {
+        http get "https://api.ipify.org" -> ip
+        toast("IP: " + ip)
+    }
+}
+
+fn copy_ip() {
+    native -> """
+        val clipboard = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
+        val clip = android.content.ClipData.newPlainText("IP", "copied")
+        clipboard.setPrimaryClip(clip)
+        Toast.makeText(this, "Copied!", Toast.LENGTH_SHORT).show()
+    """
+}
+
+fn do_get() {
+    toast("Requesting...")
+    background {
+        http get "https://httpbin.org/get" -> response
+        toast("Done! Check response")
+    }
+}
+
+fn open_url() {
+    open("https://httpbin.org")
+}
+
+fn save_note() {
+    toast("Note saved! 📝")
+}
+
+fn share_notes() {
+    share("My notes from FoxKit 📝")
+}
