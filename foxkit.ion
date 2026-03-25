@@ -1,41 +1,42 @@
-// foxkit.ion — Developer Toolkit (fixed version)
+// foxkit.ion — Developer Toolkit v1.0.3
 
 app FoxKit
 
 screen Main {
     text "🦊 FoxKit — Dev Toolkit"
-    button "My IP" -> navigate(MyIP)
     button "Quick Notes" -> navigate(Notes)
+    button "Network Tools" -> navigate(Network)
     button "About" -> navigate(About)
-}
-
-screen MyIP {
-    text "📡 Network Info"
-    text "Tap Refresh to load your IP"
-    button "Refresh" -> refresh_ip()
-    button "Back" -> back()
 }
 
 screen Notes {
     text "📝 Quick Notes"
     input "Write a note..."
-    button "Save" -> save_note()
-    button "Share Notes" -> share("My notes from FoxKit")
+    button "Save Note" -> save_note()
+    button "Share All" -> share("My notes from FoxKit 📝")
+    button "Clear All" -> alert("Confirm", "Delete all notes?")
+    button "Back" -> back()
+}
+
+screen Network {
+    text "🌐 Network Tools"
+    text "Useful links for developers"
+    button "Google DNS" -> open("https://dns.google/")
+    button "IP Lookup" -> open("https://whatismyipaddress.com/")
+    button "Speed Test" -> open("https://speedtest.net")
     button "Back" -> back()
 }
 
 screen About {
-    text "🦊 FoxKit v1.0"
+    text "🦊 FoxKit v1.0.3"
     text "Built with ion ⚡"
+    text "A minimalist language for Android"
     text "1349 lines of Go"
-    button "GitHub" -> open("https://github.com/Acorx/ion")
+    button "⭐ Star on GitHub" -> open("https://github.com/Acorx/ion")
+    button "📖 Source Code" -> open("https://github.com/Acorx/foxkit")
     button "Back" -> back()
 }
 
-fn refresh_ip() {
-    toast("Refreshing...")
-}
-
 fn save_note() {
-    toast("Note saved!")
+    toast("Note saved! ✅")
 }

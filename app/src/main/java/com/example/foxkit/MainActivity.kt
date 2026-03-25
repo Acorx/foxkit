@@ -12,10 +12,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.ion_1).text = "🦊 FoxKit — Dev Toolkit"
         findViewById<Button>(R.id.ion_2).setOnClickListener {
-            startActivity(Intent(this, MyIPActivity::class.java))
+            startActivity(Intent(this, NotesActivity::class.java))
         }
         findViewById<Button>(R.id.ion_3).setOnClickListener {
-            startActivity(Intent(this, NotesActivity::class.java))
+            startActivity(Intent(this, NetworkActivity::class.java))
         }
         findViewById<Button>(R.id.ion_4).setOnClickListener {
             startActivity(Intent(this, AboutActivity::class.java))

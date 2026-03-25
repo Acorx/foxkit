@@ -9,8 +9,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MyIPActivity" />
         <activity android:name=".NotesActivity" />
+        <activity android:name=".NetworkActivity" />
         <activity android:name=".AboutActivity" />
     </application>
 </manifest>
