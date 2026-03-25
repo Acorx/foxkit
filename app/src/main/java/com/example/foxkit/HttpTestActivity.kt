@@ -21,17 +21,17 @@ class HttpTestActivity : AppCompatActivity() {
         findViewById<Button>(R.id.ion_6).setOnClickListener {
             finish()
         }
+    }
 
-        private fun do_get() {
-            Toast.makeText(this, "Requesting...", Toast.LENGTH_SHORT).show()
-            Thread {
-                val response = java.net.URL("https://httpbin.org/get").readText()
-                Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show()
-            }.start()
-        }
+    private fun do_get() {
+        Toast.makeText(this, "Requesting...", Toast.LENGTH_SHORT).show()
+        Thread {
+            val response = java.net.URL("https://httpbin.org/get").readText()
+            Toast.makeText(this, "Done!", Toast.LENGTH_SHORT).show()
+        }.start()
+    }
 
-        private fun open_url() {
-            startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://httpbin.org")))
-        }
+    private fun open_url() {
+        startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://httpbin.org")))
     }
 }
