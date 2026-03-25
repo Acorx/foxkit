@@ -15,12 +15,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, MyIPActivity::class.java))
         }
         findViewById<Button>(R.id.ion_3).setOnClickListener {
-            startActivity(Intent(this, HttpTestActivity::class.java))
-        }
-        findViewById<Button>(R.id.ion_4).setOnClickListener {
             startActivity(Intent(this, NotesActivity::class.java))
         }
-        findViewById<Button>(R.id.ion_5).setOnClickListener {
+        findViewById<Button>(R.id.ion_4).setOnClickListener {
             startActivity(Intent(this, AboutActivity::class.java))
         }
     }

@@ -29,12 +29,6 @@
     <Button android:id="@+id/ion_5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Clear All"
-        android:layout_marginTop="4dp" />
-
-    <Button android:id="@+id/ion_6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Back"
         android:layout_marginTop="4dp" />
 

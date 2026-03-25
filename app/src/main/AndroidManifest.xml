@@ -10,7 +10,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".MyIPActivity" />
-        <activity android:name=".HttpTestActivity" />
         <activity android:name=".NotesActivity" />
         <activity android:name=".AboutActivity" />
     </application>
