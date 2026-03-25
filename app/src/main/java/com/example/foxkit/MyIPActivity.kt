@@ -23,15 +23,15 @@ class MyIPActivity : AppCompatActivity() {
         }
     }
 
-    private fun copy_ip() {
-        Toast.makeText(this, "Copied!", Toast.LENGTH_SHORT).show()
-    }
-
     private fun refresh_ip() {
         Toast.makeText(this, "Refreshing...", Toast.LENGTH_SHORT).show()
         Thread {
             val ip = java.net.URL("https://api.ipify.org").readText()
             Toast.makeText(this, "IP loaded!", Toast.LENGTH_SHORT).show()
         }.start()
+    }
+
+    private fun copy_ip() {
+        Toast.makeText(this, "Copied!", Toast.LENGTH_SHORT).show()
     }
 }

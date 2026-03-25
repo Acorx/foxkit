@@ -16,16 +16,19 @@
     <Button android:id="@+id/ion_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Refresh"
         android:layout_marginTop="4dp" />
 
     <Button android:id="@+id/ion_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Copy IP"
         android:layout_marginTop="4dp" />
 
     <Button android:id="@+id/ion_5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Back"
         android:layout_marginTop="4dp" />
 
 </LinearLayout>

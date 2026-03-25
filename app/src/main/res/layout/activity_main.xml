@@ -11,21 +11,25 @@
     <Button android:id="@+id/ion_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="My IP"
         android:layout_marginTop="4dp" />
 
     <Button android:id="@+id/ion_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="HTTP Test"
         android:layout_marginTop="4dp" />
 
     <Button android:id="@+id/ion_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Quick Notes"
         android:layout_marginTop="4dp" />
 
     <Button android:id="@+id/ion_5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="About"
         android:layout_marginTop="4dp" />
 
 </LinearLayout>
