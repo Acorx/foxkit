@@ -1,42 +1,47 @@
-// foxkit.ion — Developer Toolkit v1.0.3
+// foxkit.ion v1.0.4 — with working HTTP
 
 app FoxKit
 
 screen Main {
-    text "🦊 FoxKit — Dev Toolkit"
+    text "🦊 FoxKit v1.0.4"
+    text "Developer Toolkit for Android"
+    button "My IP" -> navigate(MyIP)
     button "Quick Notes" -> navigate(Notes)
-    button "Network Tools" -> navigate(Network)
     button "About" -> navigate(About)
+}
+
+screen MyIP {
+    text "📡 My Public IP"
+    text "Tap Load to fetch your IP"
+    text ""
+    button "Load IP" -> load_ip()
+    button "Back" -> back()
 }
 
 screen Notes {
     text "📝 Quick Notes"
     input "Write a note..."
-    button "Save Note" -> save_note()
-    button "Share All" -> share("My notes from FoxKit 📝")
-    button "Clear All" -> alert("Confirm", "Delete all notes?")
-    button "Back" -> back()
-}
-
-screen Network {
-    text "🌐 Network Tools"
-    text "Useful links for developers"
-    button "Google DNS" -> open("https://dns.google/")
-    button "IP Lookup" -> open("https://whatismyipaddress.com/")
-    button "Speed Test" -> open("https://speedtest.net")
+    button "Save" -> save_note()
+    button "Share" -> share("My notes from FoxKit")
     button "Back" -> back()
 }
 
 screen About {
-    text "🦊 FoxKit v1.0.3"
-    text "Built with ion ⚡"
-    text "A minimalist language for Android"
-    text "1349 lines of Go"
-    button "⭐ Star on GitHub" -> open("https://github.com/Acorx/ion")
-    button "📖 Source Code" -> open("https://github.com/Acorx/foxkit")
+    text "🦊 FoxKit v1.0.4"
+    text "Built with ion"
+    text "https://github.com/Acorx/ion"
+    button "Open GitHub" -> open("https://github.com/Acorx/ion")
     button "Back" -> back()
 }
 
+fn load_ip() {
+    toast("Loading...")
+    background {
+        http get "https://api.ipify.org" -> ip
+        toast("IP: " + ip)
+    }
+}
+
 fn save_note() {
-    toast("Note saved! ✅")
+    toast("Note saved!")
 }

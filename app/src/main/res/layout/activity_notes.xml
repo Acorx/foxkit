@@ -17,22 +17,16 @@
     <Button android:id="@+id/ion_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save Note"
+        android:text="Save"
         android:layout_marginTop="4dp" />
 
     <Button android:id="@+id/ion_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Share All"
+        android:text="Share"
         android:layout_marginTop="4dp" />
 
     <Button android:id="@+id/ion_5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Clear All"
-        android:layout_marginTop="4dp" />
-
-    <Button android:id="@+id/ion_6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Back"

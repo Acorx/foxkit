@@ -17,18 +17,15 @@ class NotesActivity : AppCompatActivity() {
         findViewById<Button>(R.id.ion_4).setOnClickListener {
             val shareIntent = android.content.Intent(android.content.Intent.ACTION_SEND)
             shareIntent.type = "text/plain"
-            shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "My notes from FoxKit 📝")
+            shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "My notes from FoxKit")
             startActivity(android.content.Intent.createChooser(shareIntent, "Share"))
         }
         findViewById<Button>(R.id.ion_5).setOnClickListener {
-            android.app.AlertDialog.Builder(this).setTitle("Confirm").setMessage("Delete all notes?").setPositiveButton("OK", null).show()
-        }
-        findViewById<Button>(R.id.ion_6).setOnClickListener {
             finish()
         }
     }
 
     private fun save_note() {
-        Toast.makeText(this, "Note saved! ✅", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Note saved!", Toast.LENGTH_SHORT).show()
     }
 }
