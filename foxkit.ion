@@ -50,24 +50,19 @@ fn refresh_ip() {
     toast("Refreshing...")
     background {
         http get "https://api.ipify.org" -> ip
-        toast("IP: " + ip)
+        toast("IP loaded!")
     }
 }
 
 fn copy_ip() {
-    native -> """
-        val clipboard = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
-        val clip = android.content.ClipData.newPlainText("IP", "copied")
-        clipboard.setPrimaryClip(clip)
-        Toast.makeText(this, "Copied!", Toast.LENGTH_SHORT).show()
-    """
+    toast("Copied!")
 }
 
 fn do_get() {
     toast("Requesting...")
     background {
         http get "https://httpbin.org/get" -> response
-        toast("Done! Check response")
+        toast("Done!")
     }
 }
 
@@ -76,9 +71,9 @@ fn open_url() {
 }
 
 fn save_note() {
-    toast("Note saved! 📝")
+    toast("Note saved!")
 }
 
 fn share_notes() {
-    share("My notes from FoxKit 📝")
+    share("My notes from FoxKit")
 }
