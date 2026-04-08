@@ -1,15 +1,16 @@
-*.iml
-.gradle
-/local.properties
-/.idea
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+# Gradle wrapper
+gradle-wrapper.jar
+gradle-wrapper.properties
+
+# Build outputs
+/build/
 /app/build/
-*.apk
-*.ap_
-*.aab
-*.dex
+
+# IDE
+.idea/
+*.iml
+local.properties
+
+# OS
+.DS_Store
+Thumbs.db
