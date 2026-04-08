@@ -1,5 +1,6 @@
 package com.example.foxkit
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
@@ -7,7 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class NotesActivity : AppCompatActivity() {
     private lateinit var noteInput: EditText
-    private var noteText: String = ""
+    private val PREFS_NAME = "FoxKitNotes"
+    private val NOTE_KEY = "saved_note"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +19,9 @@ class NotesActivity : AppCompatActivity() {
         
         noteInput = findViewById(R.id.ion_2)
         noteInput.hint = "Write a note..."
+        
+        // Charger la note sauvegardée
+        loadSavedNote()
         
         findViewById<Button>(R.id.ion_3).setOnClickListener {
             saveNote()
@@ -28,7 +33,10 @@ class NotesActivity : AppCompatActivity() {
         
         findViewById<Button>(R.id.ion_5).setOnClickListener {
             noteInput.setText("")
-            noteText = ""
+            getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                .edit()
+                .remove(NOTE_KEY)
+                .apply()
             Toast.makeText(this, "Note cleared!", Toast.LENGTH_SHORT).show()
         }
         
@@ -37,9 +45,21 @@ class NotesActivity : AppCompatActivity() {
         }
     }
 
+    private fun loadSavedNote() {
+        val prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val savedNote = prefs.getString(NOTE_KEY, "")
+        if (!savedNote.isNullOrEmpty()) {
+            noteInput.setText(savedNote)
+        }
+    }
+
     private fun saveNote() {
-        noteText = noteInput.text.toString()
+        val noteText = noteInput.text.toString()
         if (noteText.isNotBlank()) {
+            getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                .edit()
+                .putString(NOTE_KEY, noteText)
+                .apply()
             Toast.makeText(this, "Note saved!", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(this, "Please write something first", Toast.LENGTH_SHORT).show()
@@ -47,7 +67,7 @@ class NotesActivity : AppCompatActivity() {
     }
 
     private fun shareNote() {
-        val textToShare = if (noteText.isNotBlank()) noteText else noteInput.text.toString()
+        val textToShare = noteInput.text.toString()
         if (textToShare.isNotBlank()) {
             val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.type = "text/plain"
