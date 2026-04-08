@@ -6,26 +6,26 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 class NotesActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_notes)
+ override fun onCreate(savedInstanceState: Bundle?) {
+ super.onCreate(savedInstanceState)
+ setContentView(R.layout.activity_notes)
 
-        findViewById<TextView>(R.id.ion_1).text = "📝 Quick Notes"
-        findViewById<Button>(R.id.ion_3).setOnClickListener {
-            save_note()
-        }
-        findViewById<Button>(R.id.ion_4).setOnClickListener {
-            val shareIntent = android.content.Intent(android.content.Intent.ACTION_SEND)
-            shareIntent.type = "text/plain"
-            shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "My notes from FoxKit")
-            startActivity(android.content.Intent.createChooser(shareIntent, "Share"))
-        }
-        findViewById<Button>(R.id.ion_5).setOnClickListener {
-            finish()
-        }
-    }
+  findViewById<TextView>(R.id.ion_1).text = "📝 Quick Notes"
+  findViewById<Button>(R.id.ion_3).setOnClickListener {
+   save_note()
+  }
+  findViewById<Button>(R.id.ion_4).setOnClickListener {
+   val shareIntent = android.content.Intent(android.content.Intent.ACTION_SEND)
+   shareIntent.type = "text/plain"
+   shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "My notes from FoxKit")
+   startActivity(android.content.Intent.createChooser(shareIntent, "Share"))
+  }
+  findViewById<Button>(R.id.ion_5).setOnClickListener {
+   finish()
+  }
+ }
 
-    private fun save_note() {
-        Toast.makeText(this, "Note saved!", Toast.LENGTH_SHORT).show()
-    }
+ private fun save_note() {
+  Toast.makeText(this, "Note saved!", Toast.LENGTH_SHORT).show()
+ }
 }
